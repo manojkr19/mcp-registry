@@ -1,0 +1,193 @@
+# MCP Registry - Python Implementation
+
+A Python implementation of the Model Context Protocol (MCP) Registry, converted from the original Go version.
+
+## Features
+
+- **RESTful API** with FastAPI
+- **Database Support**: MongoDB and in-memory storage
+- **Cursor-based Pagination** for efficient data retrieval
+- **Extensible Authentication** framework (currently no-op, ready for future auth methods)
+- **Automatic OpenAPI Documentation** via FastAPI
+- **Environment-based Configuration** using Pydantic Settings
+- **Async/Await Support** throughout the stack
+
+## Setup
+
+### Prerequisites
+- Python 3.11+
+- Conda (recommended) or pip
+- MongoDB (optional, for production use)
+
+### Installation
+
+1. **Create and activate conda environment:**
+   ```bash
+   conda env create -f environment.yml
+   conda activate mcp-registry
+   ```
+
+2. **Or install with pip:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Install in development mode:**
+   ```bash
+   pip install -e .
+   ```
+
+## Configuration
+
+The application uses environment variables with the `MCP_REGISTRY_` prefix:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `MCP_REGISTRY_SERVER_ADDRESS` | `:8080` | Server address and port |
+| `MCP_REGISTRY_DATABASE_TYPE` | `mongodb` | Database type (`mongodb` or `memory`) |
+| `MCP_REGISTRY_DATABASE_URL` | `mongodb://localhost:27017` | MongoDB connection URL |
+| `MCP_REGISTRY_DATABASE_NAME` | `mcp-registry` | Database name |
+| `MCP_REGISTRY_COLLECTION_NAME` | `servers_v2` | Collection name |
+| `MCP_REGISTRY_LOG_LEVEL` | `info` | Logging level |
+| `MCP_REGISTRY_SEED_FILE_PATH` | `data/seed.json` | Path to seed data file |
+| `MCP_REGISTRY_SEED_IMPORT` | `true` | Whether to import seed data on startup |
+| `MCP_REGISTRY_AUTH_ENABLED` | `false` | Enable authentication |
+| `MCP_REGISTRY_VERSION` | `dev` | Application version |
+
+## Running
+
+### Development
+```bash
+# Using the module
+python -m mcp_registry.main
+
+# Or using the console script
+mcp-registry
+```
+
+### Production
+```bash
+# With MongoDB
+MCP_REGISTRY_DATABASE_TYPE=mongodb mcp-registry
+
+# With in-memory database
+MCP_REGISTRY_DATABASE_TYPE=memory mcp-registry
+```
+
+## API Endpoints
+
+- **GET** `/v0/health` - Health check
+- **GET** `/v0/servers` - List servers with pagination
+- **GET** `/v0/servers/{id}` - Get server details
+- **POST** `/v0/publish` - Publish a new server (requires auth header)
+
+### API Documentation
+Once running, visit:
+- Swagger UI: `http://localhost:8080/docs`
+- ReDoc: `http://localhost:8080/redoc`
+- OpenAPI spec: `http://localhost:8080/openapi.json`
+
+## Examples
+
+### List Servers
+```bash
+curl http://localhost:8080/v0/servers
+```
+
+### Get Server Details
+```bash
+curl http://localhost:8080/v0/servers/{server-id}
+```
+
+### Publish Server (placeholder auth)
+```bash
+curl -X POST http://localhost:8080/v0/publish \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your-token" \
+  -d '{
+    "name": "example-server",
+    "description": "An example MCP server",
+    "repository": {
+      "url": "https://github.com/example/server",
+      "source": "github",
+      "id": "example/server"
+    },
+    "version_detail": {
+      "version": "1.0.0",
+      "release_date": "2025-01-01T00:00:00Z",
+      "is_latest": true
+    }
+  }'
+```
+
+## Development
+
+### Project Structure
+```
+src/mcp_registry/
+├── __init__.py
+├── main.py              # FastAPI application entry point
+├── models/              # Pydantic models
+├── api/                 # FastAPI routers and endpoints
+├── database/            # Database abstraction layer
+├── auth/                # Authentication framework
+├── config/              # Configuration management
+└── service/             # Business logic layer
+```
+
+### Testing
+```bash
+# Run tests (when implemented)
+pytest
+
+# Run with coverage
+pytest --cov=mcp_registry
+```
+
+### Code Quality
+```bash
+# Format code
+black src/ tests/
+
+# Lint code
+ruff src/ tests/
+
+# Type checking
+mypy src/
+```
+
+## Differences from Go Version
+
+### Removed Features
+- GitHub OAuth authentication (replaced with extensible auth framework)
+- Docker containerization
+
+### Added Features
+- FastAPI automatic OpenAPI documentation
+- Async/await support throughout
+- Pydantic data validation
+- Environment file support (.env)
+
+### Architecture Changes
+- **FastAPI** instead of standard Go HTTP handlers
+- **Motor** (async MongoDB driver) instead of standard mongo-driver
+- **Pydantic Settings** instead of caarlos0/env
+- **Dependency injection** via FastAPI's Depends system
+
+## Future Enhancements
+
+The authentication framework is designed to be extensible. Future auth methods can be added by:
+
+1. Implementing the `AuthService` interface
+2. Adding configuration for the new auth method
+3. Updating the dependency injection in `main.py`
+
+Example implementations could include:
+- GitHub OAuth (similar to original Go version)
+- JWT token validation
+- API key authentication
+- Integration with external auth services
+
+## License
+
+Same as the original Go implementation.

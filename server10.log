@@ -1,0 +1,52 @@
+INFO:     Started server process [68765]
+INFO:     Waiting for application startup.
+ERROR:    Traceback (most recent call last):
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/starlette/routing.py", line 694, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/fastapi/routing.py", line 134, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/mcp_registry/mcp-registry-python/src/mcp_registry/main.py", line 41, in lifespan
+    await database.connect()
+  File "/Users/manojkr/Development/mcp_registry/mcp-registry-python/src/mcp_registry/database/mongo.py", line 37, in connect
+    await self.client.admin.command('ping')
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/pymongo/_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/pymongo/synchronous/database.py", line 926, in command
+    with self._client._conn_for_reads(read_preference, session, operation=command_name) as (
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/pymongo/synchronous/mongo_client.py", line 1864, in _conn_for_reads
+    server = self._select_server(read_preference, session, operation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/pymongo/synchronous/mongo_client.py", line 1812, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/pymongo/synchronous/topology.py", line 409, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/pymongo/synchronous/topology.py", line 387, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/pymongo/synchronous/topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/manojkr/Development/miniforge3/envs/mcp-registry/lib/python3.11/site-packages/pymongo/synchronous/topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 687470a09f14d16f9d7bb223, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+
+ERROR:    Application startup failed. Exiting.
+
+ERROR conda.cli.main_run:execute(47): `conda run python -m mcp_registry.main` failed. (See above for error)
+Starting MCP Registry vdev
+Server will be available at http://0.0.0.0:8080
+Database connection closed successfully
+

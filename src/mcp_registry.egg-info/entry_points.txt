@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-registry = mcp_registry.main:main
