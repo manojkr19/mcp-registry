@@ -1,0 +1,21 @@
+INFO:     Started server process [91485]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+Starting MCP Registry vdev
+Server will be available at http://0.0.0.0:8080
+Using in-memory database
+Importing seed data...
+Failed to import seed data: Seed file not found: data/seed_2025_05_16.json
+MCP Registry started successfully
+- Database: DatabaseType.MEMORY
+- Auth enabled: False
+- Version: dev
+INFO:     127.0.0.1:61002 - "GET /v0/health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [91485]
+Database connection closed successfully
+
+Received signal 15, shutting down server...

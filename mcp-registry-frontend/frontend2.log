@@ -1,0 +1,221 @@
+
+> mcp-registry-frontend@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.3.5
+   - Local:        http://localhost:3000
+   - Network:      http://10.65.1.48:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1025ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1365ms (1928 modules)
+ GET / 200 in 1661ms
+ GET / 200 in 117ms
+ ✓ Compiled /favicon.ico in 311ms (1948 modules)
+ GET /favicon.ico 200 in 565ms
+ GET /favicon.ico 200 in 565ms
+ GET /apple-touch-icon-precomposed.png 404 in 570ms
+ GET /apple-touch-icon.png 404 in 568ms
+ ✓ Compiled in 864ms (1942 modules)
+ GET / 200 in 80ms
+ ✓ Compiled in 356ms (1942 modules)
+ GET / 200 in 45ms
+ GET / 200 in 197ms
+ ✓ Compiled /favicon.ico in 188ms (1948 modules)
+ GET /favicon.ico 200 in 412ms
+ GET /favicon.ico 200 in 422ms
+ GET /apple-touch-icon-precomposed.png 404 in 426ms
+ GET /apple-touch-icon.png 404 in 426ms
+ ✓ Compiled in 363ms (1942 modules)
+ GET / 200 in 75ms
+ ✓ Compiled in 170ms (1942 modules)
+ GET / 200 in 43ms
+ GET / 200 in 200ms
+ ✓ Compiled /favicon.ico in 171ms (1948 modules)
+ GET /favicon.ico 200 in 403ms
+ GET /favicon.ico 200 in 404ms
+ GET /apple-touch-icon.png 404 in 406ms
+ GET /apple-touch-icon-precomposed.png 404 in 409ms
+ ⨯ ./src/app/server/[id]/page.tsx:11:1
+Module not found: Can't resolve '@/components/ui/tabs'
+   9 | import { Button } from '@/components/ui/button';
+  10 | import { Separator } from '@/components/ui/separator';
+> 11 | import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+     | ^
+  12 | import { api, extractTechnologies, formatDate } from '@/lib/api';
+  13 | import type { ServerDetail } from '@/types/server';
+  14 |
+
+https://nextjs.org/docs/messages/module-not-found
+ ○ Compiling /server/[id] ...
+ ⨯ ./src/app/server/[id]/page.tsx:11:1
+Module not found: Can't resolve '@/components/ui/tabs'
+   9 | import { Button } from '@/components/ui/button';
+  10 | import { Separator } from '@/components/ui/separator';
+> 11 | import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+     | ^
+  12 | import { api, extractTechnologies, formatDate } from '@/lib/api';
+  13 | import type { ServerDetail } from '@/types/server';
+  14 |
+
+https://nextjs.org/docs/messages/module-not-found
+ GET /server/00613acb-73e2-4f93-8b96-296df17316c8 500 in 1338ms
+ GET /server/00613acb-73e2-4f93-8b96-296df17316c8 500 in 5ms
+ GET /server/00613acb-73e2-4f93-8b96-296df17316c8 500 in 5ms
+ GET /server/00613acb-73e2-4f93-8b96-296df17316c8 500 in 5ms
+ GET / 500 in 13ms
+ GET /?search=wiki 500 in 11ms
+ GET / 500 in 7ms
+ GET / 500 in 22ms
+ GET / 500 in 20ms
+ ⚠ ./src/app/server/[id]/page.tsx
+Attempted import error: 'extractTechnologies' is not exported from '@/lib/api' (imported as 'extractTechnologies').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'formatDate' is not exported from '@/lib/api' (imported as 'formatDate').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 226ms
+ ⚠ ./src/app/server/[id]/page.tsx
+Attempted import error: 'extractTechnologies' is not exported from '@/lib/api' (imported as 'extractTechnologies').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'formatDate' is not exported from '@/lib/api' (imported as 'formatDate').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+ ⚠ ./src/app/server/[id]/page.tsx
+Attempted import error: 'extractTechnologies' is not exported from '@/lib/api' (imported as 'extractTechnologies').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'formatDate' is not exported from '@/lib/api' (imported as 'formatDate').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+ ⚠ ./src/app/server/[id]/page.tsx
+Attempted import error: 'extractTechnologies' is not exported from '@/lib/api' (imported as 'extractTechnologies').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'formatDate' is not exported from '@/lib/api' (imported as 'formatDate').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+ ⚠ ./src/app/server/[id]/page.tsx
+Attempted import error: 'extractTechnologies' is not exported from '@/lib/api' (imported as 'extractTechnologies').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'formatDate' is not exported from '@/lib/api' (imported as 'formatDate').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+ GET /favicon.ico 200 in 457ms
+ GET /favicon.ico 200 in 458ms
+ GET /apple-touch-icon.png 404 in 460ms
+ GET /apple-touch-icon-precomposed.png 404 in 463ms
+ GET / 200 in 135ms
+ ⚠ ./src/app/server/[id]/page.tsx
+Attempted import error: 'extractTechnologies' is not exported from '@/lib/api' (imported as 'extractTechnologies').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'formatDate' is not exported from '@/lib/api' (imported as 'formatDate').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+ ⚠ ./src/app/server/[id]/page.tsx
+Attempted import error: 'extractTechnologies' is not exported from '@/lib/api' (imported as 'extractTechnologies').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'formatDate' is not exported from '@/lib/api' (imported as 'formatDate').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'extractTechnologies' is not exported from '@/lib/api' (imported as 'extractTechnologies').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+
+./src/app/server/[id]/page.tsx
+Attempted import error: 'formatDate' is not exported from '@/lib/api' (imported as 'formatDate').
+
+Import trace for requested module:
+./src/app/server/[id]/page.tsx
+ GET /server/00613acb-73e2-4f93-8b96-296df17316c8 200 in 806ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /server/[id] in 338ms (2348 modules)
+ GET /server/00613acb-73e2-4f93-8b96-296df17316c8 200 in 330ms
+ GET / 200 in 108ms
+ GET / 200 in 73ms
+ ✓ Compiled in 227ms (2348 modules)
+ GET / 200 in 180ms
+ ✓ Compiled in 401ms (2348 modules)
+ GET / 200 in 34ms
+ ✓ Compiled in 249ms (2348 modules)
+ GET / 200 in 27ms
+ ✓ Compiled in 211ms (2328 modules)
+ GET / 200 in 75ms
+ ✓ Compiled in 316ms (2328 modules)
+ GET / 200 in 47ms
+ ✓ Compiled in 422ms (2328 modules)
+ GET / 200 in 45ms
+ ✓ Compiled in 219ms (2328 modules)
+ GET / 200 in 42ms
+ GET /server/00613acb-73e2-4f93-8b96-296df17316c8 200 in 145ms
+ GET / 200 in 116ms
+ ✓ Compiled /favicon.ico in 400ms (2334 modules)
+ GET /favicon.ico 200 in 708ms
+ GET /favicon.ico 200 in 736ms
+ GET /apple-touch-icon.png 404 in 738ms
+ GET /apple-touch-icon-precomposed.png 404 in 739ms
+ ✓ Compiled in 684ms (2304 modules)
+ GET / 200 in 87ms
+ ✓ Compiled in 195ms (2304 modules)
+ GET / 200 in 78ms
+ ✓ Compiled in 204ms (2304 modules)
+ GET / 200 in 30ms
+ ✓ Compiled in 370ms (2304 modules)
+ GET / 200 in 30ms
+ ✓ Compiled in 175ms (2304 modules)
+ GET / 200 in 46ms
+ GET / 200 in 198ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 650ms (2310 modules)
+ GET /favicon.ico 200 in 818ms
+ GET /favicon.ico 200 in 818ms
+ GET /apple-touch-icon-precomposed.png 404 in 822ms
+ GET /apple-touch-icon.png 404 in 822ms
+ GET / 200 in 135ms
+ GET / 200 in 84ms
+ ✓ Compiled in 736ms (2304 modules)
+ GET / 200 in 77ms
+ ✓ Compiled in 247ms (2304 modules)
+ GET / 200 in 46ms
+ GET / 200 in 160ms
+ GET / 200 in 87ms
+[?25h
