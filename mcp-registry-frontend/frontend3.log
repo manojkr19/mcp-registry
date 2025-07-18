@@ -89,3 +89,42 @@
  GET / 200 in 31ms
  ✓ Compiled /_not-found in 283ms (1932 modules)
  GET /lab/query?component=query 404 in 314ms
+ GET /lab/query?component=query 404 in 35ms
+ GET /lab/query?component=query 404 in 18ms
+ GET /lab/query?component=query 404 in 16ms
+ GET / 200 in 214ms
+ GET /apple-touch-icon.png 404 in 171ms
+ GET /apple-touch-icon-precomposed.png 404 in 184ms
+ ✓ Compiled /favicon.ico in 264ms (1084 modules)
+ GET /favicon.ico 200 in 248ms
+ GET /favicon.ico 200 in 317ms
+ ✓ Compiled in 179ms (875 modules)
+ GET / 200 in 41ms
+ ✓ Compiled in 105ms (875 modules)
+ GET / 200 in 15ms
+ ✓ Compiled in 101ms (875 modules)
+ GET / 200 in 22ms
+ GET / 200 in 183ms
+ GET /favicon.ico 200 in 9ms
+ GET /favicon.ico 200 in 8ms
+ ✓ Compiled /_not-found in 199ms (1948 modules)
+ GET /apple-touch-icon-precomposed.png 404 in 327ms
+ GET /apple-touch-icon.png 404 in 326ms
+ ○ Compiling /server/[id] ...
+ ✓ Compiled /server/[id] in 662ms (2000 modules)
+ GET /server/00613acb-73e2-4f93-8b96-296df17316c8 200 in 1064ms
+ GET / 200 in 19ms
+ GET /server/010904ec-6e39-4bdc-878a-75a6e79d0500 200 in 24ms
+ GET /server/05ca6ccc-d6e1-47ab-ab8d-25949db9ada7 200 in 17ms
+ GET / 200 in 15ms
+ GET /server/07ccf835-680a-42b4-bf0b-db28367519ee 200 in 24ms
+ GET /server/0cdfed38-6495-42a3-a837-3788f35aadd3 200 in 21ms
+ GET /server/038a3024-c319-4a07-bd7f-9cf699cfebf1 200 in 24ms
+ GET /server/0cdfed38-6495-42a3-a837-3788f35aadd3 200 in 19ms
+ GET /server/0c43f128-7589-4ce6-9382-5399ba24bebd 200 in 18ms
+ GET /server/1743c861-7e1a-42b2-a300-6059fcd82cb9 200 in 23ms
+ GET / 200 in 195ms
+ GET /favicon.ico 200 in 12ms
+ GET /favicon.ico 200 in 12ms
+ GET /apple-touch-icon.png 404 in 77ms
+ GET /apple-touch-icon-precomposed.png 404 in 78ms

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Github, ExternalLink, Download, Users, Star, GitFork, Copy, CheckCircle2 } from 'lucide-react';
@@ -9,35 +9,16 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { api, utils } from '@/lib/api';
-import type { ServerDetail } from '@/types/server';
+import { utils } from '@/lib/api';
+import { useServer } from '@/hooks/useServers';
+import type { ServerDetail } from '@/lib/types';
 
 export default function ServerDetailPage() {
   const params = useParams();
   const router = useRouter();
-  const [server, setServer] = useState<ServerDetail | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [copiedCommands, setCopiedCommands] = useState<{ [key: string]: boolean }>({});
-
-  useEffect(() => {
-    const fetchServer = async () => {
-      try {
-        setLoading(true);
-        const response = await api.getServerById(params.id as string);
-        setServer(response);
-      } catch (err) {
-        setError('Failed to load server details');
-        console.error('Error fetching server:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (params.id) {
-      fetchServer();
-    }
-  }, [params.id]);
+  
+  const { data: server, isLoading: loading, error } = useServer(params.id as string);
 
   const copyToClipboard = async (text: string, commandType: string) => {
     try {
@@ -72,12 +53,30 @@ export default function ServerDetailPage() {
     );
   }
 
-  if (error || !server) {
+  if (error) {
     return (
       <div className="container mx-auto px-4 py-8">
         <Card className="max-w-md mx-auto">
           <CardContent className="pt-6 text-center">
-            <p className="text-red-600 mb-4">{error || 'Server not found'}</p>
+            <p className="text-red-600 mb-4">
+              {error instanceof Error ? error.message : 'Failed to load server details'}
+            </p>
+            <Button onClick={() => router.push('/')} variant="outline">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Servers
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  if (!server) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <Card className="max-w-md mx-auto">
+          <CardContent className="pt-6 text-center">
+            <p className="text-muted-foreground mb-4">Server not found</p>
             <Button onClick={() => router.push('/')} variant="outline">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Servers
